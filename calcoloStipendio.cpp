@@ -6,20 +6,20 @@ string cerca(string nomeFile, string code)
 {
     string risultato = "";
     ifstream fileAperto(nomeFile);
-    if(fileAperto.is_open())
+    if (fileAperto.is_open())
     {
         string line;
-        while(getline(fileAperto, line))
+        while (getline(fileAperto, line))
         {
-            for(int i = 0; i < 6; i++)
+            for (int i = 0; i < 6; i++)
             {
-                if(line[i] != code[i])
+                if (line[i] != code[i])
                 {
                     break;
                 }
-                else if(i == 4) // Ultimo carattere della matricola
+                else if (i == 4) // Ultimo carattere della matricola
                 {
-                    for(int j = 6; j < line.length(); j++)
+                    for (int j = 6; j < line.length(); j++)
                     {
                         risultato += line[j];
                     }
@@ -36,16 +36,16 @@ string cerca(string nomeFile, string code)
 
 void findNameByCode(string code)
 {
-   string risultato = cerca("matricola.txt", code);
-   cout << "La matricola " << code << " corrisponde al nome dell'impiegato " << risultato << "\n";
+    string risultato = cerca("matricola.txt", code);
+    cout << "La matricola " << code << " corrisponde al nome dell'impiegato " << risultato << "\n";
 }
 
 void findSalaryByCode(string code)
 {
     cout << "Alla matricola " << code << " corrisponde uno stipendio di " << cerca("stipendio.txt", code) << ". \n";
-}   
+}
 
-void findStraordinaryByCode(string code) // Apro file stipendio.txt
+void findStraordinaryByCode(string code) 
 {
     cout << "La matricola " << code << " ha maturato " << cerca("straordinari.txt", code) << " ore di straordinario. \n";
 }
@@ -54,19 +54,19 @@ void findSalaryByName(string name)
 {
     ifstream fileAperto("matricola.txt");
     string code = "";
-    if(fileAperto.is_open())
+    if (fileAperto.is_open())
     {
         string line;
-        while(getline(fileAperto, line))
+        while (getline(fileAperto, line))
         {
             int k = 0;
-            for(int i = 6; i < line.length(); i++)
+            for (int i = 6; i < line.length(); i++)
             {
-                if(line[i] != name[k])
+                if (line[i] != name[k])
                 {
                     break;
                 }
-                else if(k == name.length() -1) // Ultimo carattere della matricola
+                else if (k == name.length() - 1) // Ultimo carattere della matricola
                 {
                     for (int j = 0; j < 5; j++)
                     {
@@ -97,19 +97,20 @@ void findSalaryAndStraordinaryByCode(string code)
 int main()
 {
     cout << "Benvenuto nel programma di calcolo stipendi. \n";
-
     bool flag = true;
     while (flag) // Ciclo inserimento Menù
     {
         cout << "----------------------------------------------------------\n";
-        cout << "Queste sono le funzionalità che puoi usare: \n";     
-        cout << "1. Matricola  ->             Nome \n";
-        cout << "2. Matricola  ->          Stipendio \n";
-        cout << "3. Matricola  ->         Straordinari \n";
-        cout << "4.   Nome     ->          Stipendio \n";
-        cout << "5. Matricola  ->   Stipendio + Straordinari (35h) \n";
-        cout << "0.   EXIT \n";
+        cout << "Queste sono le funzionalità che puoi usare: \n";
+        cout << "  DATI IN INPUT          DATI IN OUTPUT \n";
+        cout << "1.  Matricola   ->             Nome \n";
+        cout << "2.  Matricola   ->           Stipendio \n";
+        cout << "3.  Matricola   ->          Straordinari \n";
+        cout << "4.    Nome      ->           Stipendio \n";
+        cout << "5.  Matricola   ->  Stipendio + Straordinari (35h) \n";
+        cout << "0.    EXIT \n";
         cout << "----------------------------------------------------------\n";
+
         cout << "Scegli la funzionalità che vuoi usare: \n";
         int scelta;
         cin >> scelta;
@@ -135,15 +136,15 @@ int main()
             {
                 findStraordinaryByCode(input);
             }
-            else if(scelta == 4)
+            else if (scelta == 4)
             {
                 findSalaryByName(input);
             }
-            else if(scelta == 5)
+            else if (scelta == 5)
             {
                 findSalaryAndStraordinaryByCode(input);
             }
-            else if(scelta == 0)
+            else if (scelta == 0)
             {
                 flag = false;
             }
