@@ -45,7 +45,7 @@ void findSalaryByCode(string code)
     cout << "Alla matricola " << code << " corrisponde uno stipendio di " << cerca("stipendio.txt", code) << ". \n";
 }
 
-void findStraordinaryByCode(string code) 
+void findStraordinaryByCode(string code)
 {
     cout << "La matricola " << code << " ha maturato " << cerca("straordinari.txt", code) << " ore di straordinario. \n";
 }
@@ -102,7 +102,7 @@ int main()
     {
         cout << "----------------------------------------------------------\n";
         cout << "Queste sono le funzionalità che puoi usare: \n";
-        cout << "  DATI IN INPUT          DATI IN OUTPUT \n";
+        cout << "  DATI IN INPUT           DATI IN OUTPUT \n";
         cout << "1.  Matricola   ->             Nome \n";
         cout << "2.  Matricola   ->           Stipendio \n";
         cout << "3.  Matricola   ->          Straordinari \n";
